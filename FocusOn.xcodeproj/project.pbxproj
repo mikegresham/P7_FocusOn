@@ -3,29 +3,100 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E2E67542461EB56006E868D /* CheckMarkButtonWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E67532461EB56006E868D /* CheckMarkButtonWhite.swift */; };
+		3E2E675824621439006E868D /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E675724621439006E868D /* PopUp.swift */; };
+		3E2E67922462D90F006E868D /* GoalCompletionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E67912462D90F006E868D /* GoalCompletionPopUp.swift */; };
+		3E2E67942462F049006E868D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E67932462F049006E868D /* AlertController.swift */; };
+		3E2E6798246309DD006E868D /* HistoryGoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E6797246309DD006E868D /* HistoryGoalTableViewCell.swift */; };
+		3E2E679A246309F0006E868D /* HistoryTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E6799246309F0006E868D /* HistoryTaskTableViewCell.swift */; };
+		3E2E67A824644672006E868D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2E67A424644652006E868D /* Charts.framework */; };
+		3E2E67A924644672006E868D /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2E67A424644652006E868D /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3EA91A88246AA06E00EB19ED /* Pods_FocusOn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BE4570351A128FFBCFA4C0 /* Pods_FocusOn.framework */; };
+		3EA91A89246AA06E00EB19ED /* Pods_FocusOn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57BE4570351A128FFBCFA4C0 /* Pods_FocusOn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3EBC61D1245DDD8400F4B390 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61D0245DDD8400F4B390 /* AppDelegate.swift */; };
 		3EBC61D3245DDD8400F4B390 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61D2245DDD8400F4B390 /* SceneDelegate.swift */; };
-		3EBC61D5245DDD8400F4B390 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61D4245DDD8400F4B390 /* ViewController.swift */; };
 		3EBC61D8245DDD8400F4B390 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC61D6245DDD8400F4B390 /* Main.storyboard */; };
 		3EBC61DB245DDD8400F4B390 /* FocusOn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61D9245DDD8400F4B390 /* FocusOn.xcdatamodeld */; };
 		3EBC61DD245DDDAD00F4B390 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC61DC245DDDAD00F4B390 /* Assets.xcassets */; };
 		3EBC61E0245DDDAD00F4B390 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC61DE245DDDAD00F4B390 /* LaunchScreen.storyboard */; };
+		3EBC61ED245F108F00F4B390 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61EC245F108F00F4B390 /* Goal.swift */; };
+		3EBC61EF245F10AC00F4B390 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61EE245F10AC00F4B390 /* Task.swift */; };
+		3EBC61F3245F10F600F4B390 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61F2245F10F500F4B390 /* TodayViewController.swift */; };
+		3EBC61F5245F113E00F4B390 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61F4245F113E00F4B390 /* ProgressViewController.swift */; };
+		3EBC61F7245F114C00F4B390 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61F6245F114C00F4B390 /* DataController.swift */; };
+		3EBC61F9245F269500F4B390 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61F8245F269400F4B390 /* HistoryViewController.swift */; };
+		3EBC61FB245F39ED00F4B390 /* TodayGoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61FA245F39ED00F4B390 /* TodayGoalTableViewCell.swift */; };
+		3EBC61FD245F3A0C00F4B390 /* TodayTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61FC245F3A0C00F4B390 /* TodayTaskTableViewCell.swift */; };
+		3EBC6201245F3A5E00F4B390 /* CheckMarkButtonGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC6200245F3A5E00F4B390 /* CheckMarkButtonGreen.swift */; };
+		3EBC620624617D7600F4B390 /* HistorySummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC620524617D7600F4B390 /* HistorySummaryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3E2E67A324644652006E868D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E2E679E24644650006E868D /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = Charts;
+		};
+		3E2E67A524644652006E868D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E2E679E24644650006E868D /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = ChartsTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3E2E67AA24644673006E868D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3EA91A89246AA06E00EB19ED /* Pods_FocusOn.framework in Embed Frameworks */,
+				3E2E67A924644672006E868D /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3E2E67532461EB56006E868D /* CheckMarkButtonWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButtonWhite.swift; sourceTree = "<group>"; };
+		3E2E675724621439006E868D /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
+		3E2E67912462D90F006E868D /* GoalCompletionPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCompletionPopUp.swift; sourceTree = "<group>"; };
+		3E2E67932462F049006E868D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		3E2E6797246309DD006E868D /* HistoryGoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryGoalTableViewCell.swift; sourceTree = "<group>"; };
+		3E2E6799246309F0006E868D /* HistoryTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTaskTableViewCell.swift; sourceTree = "<group>"; };
+		3E2E679E24644650006E868D /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		3EA91A8D246AA32A00EB19ED /* SAConfettiView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SAConfettiView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBC61CD245DDD8400F4B390 /* FocusOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBC61D0245DDD8400F4B390 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EBC61D2245DDD8400F4B390 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3EBC61D4245DDD8400F4B390 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3EBC61D7245DDD8400F4B390 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EBC61DA245DDD8400F4B390 /* FocusOn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FocusOn.xcdatamodel; sourceTree = "<group>"; };
 		3EBC61DC245DDDAD00F4B390 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBC61DF245DDDAD00F4B390 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EBC61E1245DDDAD00F4B390 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EBC61EC245F108F00F4B390 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		3EBC61EE245F10AC00F4B390 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		3EBC61F2245F10F500F4B390 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		3EBC61F4245F113E00F4B390 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		3EBC61F6245F114C00F4B390 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		3EBC61F8245F269400F4B390 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		3EBC61FA245F39ED00F4B390 /* TodayGoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayGoalTableViewCell.swift; sourceTree = "<group>"; };
+		3EBC61FC245F3A0C00F4B390 /* TodayTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTaskTableViewCell.swift; sourceTree = "<group>"; };
+		3EBC6200245F3A5E00F4B390 /* CheckMarkButtonGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButtonGreen.swift; sourceTree = "<group>"; };
+		3EBC620524617D7600F4B390 /* HistorySummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryTableViewCell.swift; sourceTree = "<group>"; };
+		57A307DC161671551DACB33F /* Pods-FocusOn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusOn.release.xcconfig"; path = "Target Support Files/Pods-FocusOn/Pods-FocusOn.release.xcconfig"; sourceTree = "<group>"; };
+		57BE4570351A128FFBCFA4C0 /* Pods_FocusOn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FocusOn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F54166263F7B059DFBDF8E2 /* Pods-FocusOn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusOn.debug.xcconfig"; path = "Target Support Files/Pods-FocusOn/Pods-FocusOn.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +104,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EA91A88246AA06E00EB19ED /* Pods_FocusOn.framework in Frameworks */,
+				3E2E67A824644672006E868D /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E2E679F24644650006E868D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E2E67A424644652006E868D /* Charts.framework */,
+				3E2E67A624644652006E868D /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3E2E67A724644672006E868D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3EA91A8D246AA32A00EB19ED /* SAConfettiView.framework */,
+				57BE4570351A128FFBCFA4C0 /* Pods_FocusOn.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3EBC61C4245DDD8400F4B390 = {
 			isa = PBXGroup;
 			children = (
+				3E2E679E24644650006E868D /* Charts.xcodeproj */,
 				3EBC61CF245DDD8400F4B390 /* FocusOn */,
 				3EBC61CE245DDD8400F4B390 /* Products */,
+				3E2E67A724644672006E868D /* Frameworks */,
+				5F86974543BE5852CFC31F14 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +152,88 @@
 		3EBC61CF245DDD8400F4B390 /* FocusOn */ = {
 			isa = PBXGroup;
 			children = (
+				3EBC61E7245F101200F4B390 /* Model */,
+				3EBC61E9245F103700F4B390 /* View */,
+				3EBC61E8245F102200F4B390 /* Controller */,
+				3EBC61EB245F104600F4B390 /* Supporting Files */,
+			);
+			path = FocusOn;
+			sourceTree = "<group>";
+		};
+		3EBC61E7245F101200F4B390 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3EBC61EC245F108F00F4B390 /* Goal.swift */,
+				3EBC61EE245F10AC00F4B390 /* Task.swift */,
+				3EBC61D9245DDD8400F4B390 /* FocusOn.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3EBC61E8245F102200F4B390 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3EBC61F8245F269400F4B390 /* HistoryViewController.swift */,
+				3EBC61F2245F10F500F4B390 /* TodayViewController.swift */,
+				3EBC61F4245F113E00F4B390 /* ProgressViewController.swift */,
+				3EBC61F6245F114C00F4B390 /* DataController.swift */,
+				3E2E67932462F049006E868D /* AlertController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3EBC61E9245F103700F4B390 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3EBC61FF245F3A3100F4B390 /* Buttons */,
+				3EBC61FE245F3A1D00F4B390 /* TableViewCells */,
+				3EBC61D6245DDD8400F4B390 /* Main.storyboard */,
+				3E2E675724621439006E868D /* PopUp.swift */,
+				3E2E67912462D90F006E868D /* GoalCompletionPopUp.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3EBC61EB245F104600F4B390 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				3EBC61D0245DDD8400F4B390 /* AppDelegate.swift */,
 				3EBC61D2245DDD8400F4B390 /* SceneDelegate.swift */,
-				3EBC61D4245DDD8400F4B390 /* ViewController.swift */,
-				3EBC61D6245DDD8400F4B390 /* Main.storyboard */,
 				3EBC61DC245DDDAD00F4B390 /* Assets.xcassets */,
 				3EBC61DE245DDDAD00F4B390 /* LaunchScreen.storyboard */,
 				3EBC61E1245DDDAD00F4B390 /* Info.plist */,
-				3EBC61D9245DDD8400F4B390 /* FocusOn.xcdatamodeld */,
 			);
-			path = FocusOn;
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3EBC61FE245F3A1D00F4B390 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				3EBC61FA245F39ED00F4B390 /* TodayGoalTableViewCell.swift */,
+				3EBC61FC245F3A0C00F4B390 /* TodayTaskTableViewCell.swift */,
+				3EBC620524617D7600F4B390 /* HistorySummaryTableViewCell.swift */,
+				3E2E6797246309DD006E868D /* HistoryGoalTableViewCell.swift */,
+				3E2E6799246309F0006E868D /* HistoryTaskTableViewCell.swift */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		3EBC61FF245F3A3100F4B390 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3EBC6200245F3A5E00F4B390 /* CheckMarkButtonGreen.swift */,
+				3E2E67532461EB56006E868D /* CheckMarkButtonWhite.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		5F86974543BE5852CFC31F14 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F54166263F7B059DFBDF8E2 /* Pods-FocusOn.debug.xcconfig */,
+				57A307DC161671551DACB33F /* Pods-FocusOn.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +243,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3EBC61E4245DDDAD00F4B390 /* Build configuration list for PBXNativeTarget "FocusOn" */;
 			buildPhases = (
+				39B0294DE6E44FCAD721A7E1 /* [CP] Check Pods Manifest.lock */,
 				3EBC61C9245DDD8400F4B390 /* Sources */,
 				3EBC61CA245DDD8400F4B390 /* Frameworks */,
 				3EBC61CB245DDD8400F4B390 /* Resources */,
+				3E2E67AA24644673006E868D /* Embed Frameworks */,
+				40AD7F29F26A13629010936A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -116,12 +285,35 @@
 			mainGroup = 3EBC61C4245DDD8400F4B390;
 			productRefGroup = 3EBC61CE245DDD8400F4B390 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3E2E679F24644650006E868D /* Products */;
+					ProjectRef = 3E2E679E24644650006E868D /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3EBC61CC245DDD8400F4B390 /* FocusOn */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3E2E67A424644652006E868D /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 3E2E67A324644652006E868D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E2E67A624644652006E868D /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 3E2E67A524644652006E868D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3EBC61CB245DDD8400F4B390 /* Resources */ = {
@@ -136,15 +328,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		39B0294DE6E44FCAD721A7E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FocusOn-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40AD7F29F26A13629010936A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FocusOn/Pods-FocusOn-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FocusOn/Pods-FocusOn-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FocusOn/Pods-FocusOn-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3EBC61C9245DDD8400F4B390 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EBC61D5245DDD8400F4B390 /* ViewController.swift in Sources */,
+				3EBC61FB245F39ED00F4B390 /* TodayGoalTableViewCell.swift in Sources */,
+				3E2E679A246309F0006E868D /* HistoryTaskTableViewCell.swift in Sources */,
+				3E2E6798246309DD006E868D /* HistoryGoalTableViewCell.swift in Sources */,
+				3EBC6201245F3A5E00F4B390 /* CheckMarkButtonGreen.swift in Sources */,
 				3EBC61DB245DDD8400F4B390 /* FocusOn.xcdatamodeld in Sources */,
 				3EBC61D1245DDD8400F4B390 /* AppDelegate.swift in Sources */,
+				3EBC61ED245F108F00F4B390 /* Goal.swift in Sources */,
+				3EBC61F3245F10F600F4B390 /* TodayViewController.swift in Sources */,
+				3EBC61EF245F10AC00F4B390 /* Task.swift in Sources */,
+				3EBC61F5245F113E00F4B390 /* ProgressViewController.swift in Sources */,
+				3E2E67942462F049006E868D /* AlertController.swift in Sources */,
+				3EBC61F9245F269500F4B390 /* HistoryViewController.swift in Sources */,
+				3EBC61F7245F114C00F4B390 /* DataController.swift in Sources */,
+				3E2E675824621439006E868D /* PopUp.swift in Sources */,
+				3EBC620624617D7600F4B390 /* HistorySummaryTableViewCell.swift in Sources */,
+				3E2E67542461EB56006E868D /* CheckMarkButtonWhite.swift in Sources */,
 				3EBC61D3245DDD8400F4B390 /* SceneDelegate.swift in Sources */,
+				3E2E67922462D90F006E868D /* GoalCompletionPopUp.swift in Sources */,
+				3EBC61FD245F3A0C00F4B390 /* TodayTaskTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +535,7 @@
 		};
 		3EBC61E5245DDDAD00F4B390 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F54166263F7B059DFBDF8E2 /* Pods-FocusOn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -304,6 +554,7 @@
 		};
 		3EBC61E6245DDDAD00F4B390 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57A307DC161671551DACB33F /* Pods-FocusOn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
