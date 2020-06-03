@@ -12,7 +12,7 @@ import UIKit
 protocol TodayGoalCellDelegate {
     func updateRowHeight()
     func goalUpdate(cell: TodayGoalTableViewCell)
-    func goalCompleted()
+    func goalCompleted(cell: TodayGoalTableViewCell)
 }
 
 class TodayGoalTableViewCell: UITableViewCell {
@@ -25,14 +25,20 @@ class TodayGoalTableViewCell: UITableViewCell {
         goalCompletionButton.isSelected.toggle()
                 delegate?.self.goalUpdate(cell: self)
         if goalCompletionButton.isSelected == true {
-            delegate?.self.goalCompleted()
+            delegate?.self.goalCompleted(cell: self)
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        layer.masksToBounds = false
+        layer.shadowOpacity = 0.23
+        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowColor = UIColor.black.cgColor
         goalTextView.isScrollEnabled = false
         goalTextView.delegate = self
         textViewDidChange(goalTextView)
+        self.backgroundColor = .clear
     }
     
     func setCellData(goal: Goal) {
@@ -69,4 +75,5 @@ extension TodayGoalTableViewCell: UITextViewDelegate {
             textView.text = ""
         }
     }
+
 }

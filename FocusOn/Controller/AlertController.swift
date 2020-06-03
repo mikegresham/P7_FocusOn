@@ -13,12 +13,12 @@ class AlertContoller {
     init() {
         
     }
-    func tasksCompletedAlertContoller(_ sender: TodayViewController) -> UIAlertController {
+    func tasksCompletedAlertContoller(_ sender: TodayViewController, section: Int) -> UIAlertController {
         let alertController = UIAlertController.init(title: "Congratulations!", message: "Look's like you've completed all your tasks for today, did you want to mark your goal as completed?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes Please", style: .default, handler: { action in
-            sender.goal.completion = true
+            sender.goals[section].completion = true
             sender.tableView.reloadData()
-            sender.goalCompleted()
+            //sender.goalCompleted()
         })
         let noAction = UIAlertAction(title: "Not Yet", style: .destructive)
         alertController.addAction(yesAction)
@@ -28,7 +28,7 @@ class AlertContoller {
     func repeatGoalAlertContoller(_ sender: TodayViewController) -> UIAlertController {
         let alertController = UIAlertController.init(title: "Welcome Back!", message: "Look's like you didn't finish yesterday's goal, did you want to continue with yesterday's goal, or start a new goal?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Continue Goal", style: .default, handler: { action in
-            sender.repeatGoal()
+            sender.repeatGoals()
         })
         let noAction = UIAlertAction(title: "New Goal", style: .default, handler: { action in
             sender.newGoal()
@@ -49,6 +49,7 @@ class AlertContoller {
         alertController.addAction(okAction)
         return alertController
     }
+    /*
     func settingAlertContoller(_ sender: HistoryViewController) -> UIAlertController {
         let alertController = UIAlertController.init(title: "Settings", message: "Choose from below", preferredStyle: .actionSheet)
         let deleteAllAction = UIAlertAction(title: "Delete All Data", style: .destructive, handler: { action in
@@ -69,4 +70,5 @@ class AlertContoller {
         alertController.addAction(createAction)
         return alertController
     }
+ */
 }

@@ -23,9 +23,10 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var barChartView: BarChartView!
     
     @IBAction func viewSegmentChanged(_ sender: Any) {
-        self.configure()
-        self.setData()
+        //self.configure()
+        //self.setData()
     }
+    /*
     @IBAction func previousButton(_ sender: Any) {
         switch viewSegment.selectedSegmentIndex {
         case 0:
@@ -204,5 +205,6 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
         barChartView.invalidateIntrinsicContentSize()
         barChartView.animate(yAxisDuration: 0.5, easingOption: .easeOutBack)
     }
+ */
 }
 

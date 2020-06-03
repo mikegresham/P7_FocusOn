@@ -7,12 +7,19 @@
 //
 
 import Foundation
+import CoreData
 
-class Task: NSObject, NSCoding {
+class Task: NSManagedObject {
 
-    var title: String?
-    var completion: Bool
+    static var entityName: String { return "Task" }
     
+    //Attributes
+    @NSManaged var id: UUID
+    @NSManaged var title: String
+    @NSManaged var completion: Bool
+    
+    @NSManaged var goal: Goal
+    /*
     init(title: String, completion: Bool) {
         self.title = title
         self.completion = completion
@@ -33,5 +40,5 @@ class Task: NSObject, NSCoding {
         let completion = coder.decodeBool(forKey: "completion")
         self.completion = completion
     }
-    
+    */
 }

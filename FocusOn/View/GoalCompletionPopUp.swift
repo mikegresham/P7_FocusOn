@@ -72,7 +72,6 @@ var okButton = UIButton()
         messageLabel.text = message
         emojiLabel.text = feedback[Int.random(in: 0 ..< feedback.count)]
         self.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
-        self.alpha = 0
         UIView.animate(withDuration: 0.2, animations: {
             self.alpha = 1
             self.transform = CGAffineTransform(scaleX: 1, y: 1)
@@ -83,7 +82,7 @@ var okButton = UIButton()
         UIView.animate(withDuration: 0.2, delay: 0, options:
             UIView.AnimationOptions.transitionFlipFromTop, animations: {
             self.alpha = 0
-            self.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+            //self.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
         }, completion: { finished in
             self.removeFromSuperview()
         })

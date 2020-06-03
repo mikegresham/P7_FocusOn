@@ -19,7 +19,7 @@ class HistoryViewController: UITableViewController, HistoryGoalTableViewCellDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setData()
+        //setData()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableHeaderView?.backgroundColor = UIColor.init(red: 0/255, green: 166/255, blue: 118/255, alpha: 1)
@@ -29,13 +29,13 @@ class HistoryViewController: UITableViewController, HistoryGoalTableViewCellDele
         return sections.count
     }
     @IBAction func settings(_ sender: Any) {
-        present(AlertContoller.init().settingAlertContoller(self), animated: true)
+        //present(AlertContoller.init().settingAlertContoller(self), animated: true)
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if monthIndex.contains(section) {
             return 2
         } else {
-            return (sections[section] as! Goal).tasks.count + 2
+            return dataController.fetchTasks(for: (sections[section] as! Goal).id)!.count + 2
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,24 +58,24 @@ class HistoryViewController: UITableViewController, HistoryGoalTableViewCellDele
                     return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTaskTableViewCellID", for: indexPath) as! HistoryTaskTableViewCell
-                cell.setCellData(task: (sections[indexPath.section] as! Goal).tasks[indexPath.row - 1])
+                //cell.setCellData(task: (sections[indexPath.section] as! Goal).tasks[indexPath.row - 1])
                 return cell
             }
-        case (sections[indexPath.section] as! Goal).tasks.count + 1:
+        case dataController.fetchTasks(for: (sections[indexPath.section] as! Goal).id)!.count + 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "SpacingCellID", for: indexPath)
             cell.layer.borderColor = UIColor.darkGray.cgColor
             cell.layer.borderWidth = 0.3
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTaskTableViewCellID", for: indexPath) as! HistoryTaskTableViewCell
-            cell.setCellData(task: (sections[indexPath.section] as! Goal).tasks[indexPath.row - 1])
+            //cell.setCellData(task: (sections[indexPath.section] as! Goal).tasks[indexPath.row - 1])
             return cell
         }
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if monthIndex.contains(indexPath.section) {
             return indexPath.row == 0 ? tableView.estimatedRowHeight : 10
-        } else if indexPath.row == (sections[indexPath.section] as! Goal).tasks.count + 1 {
+        } else if indexPath.row == dataController.fetchTasks(for: (sections[indexPath.section] as! Goal).id)!.count + 1 {
             return 10
         }
         return tableView.estimatedRowHeight
@@ -85,7 +85,7 @@ class HistoryViewController: UITableViewController, HistoryGoalTableViewCellDele
         tableView.beginUpdates()
         tableView.endUpdates()
     }
-    
+    /*
     func setData() {
         stats.removeAll()
         monthIndex.removeAll()
@@ -124,7 +124,7 @@ class HistoryViewController: UITableViewController, HistoryGoalTableViewCellDele
         print(months)
         tableView.reloadData()
     }
-    
+    */
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 22))
         returnedView.backgroundColor = UIColor.init(red: 0/255, green: 169/255, blue: 114/255, alpha: 1)
@@ -146,5 +146,6 @@ class HistoryViewController: UITableViewController, HistoryGoalTableViewCellDele
         return "\(stats[i].completed) out of \(stats[i].total) goals completed"
         
     }
+ 
 }
 

@@ -17,6 +17,7 @@
 		3E2E67A924644672006E868D /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2E67A424644652006E868D /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3EA91A88246AA06E00EB19ED /* Pods_FocusOn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BE4570351A128FFBCFA4C0 /* Pods_FocusOn.framework */; };
 		3EA91A89246AA06E00EB19ED /* Pods_FocusOn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57BE4570351A128FFBCFA4C0 /* Pods_FocusOn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3EB9AC6F2487D878007AEE1D /* HeaderFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB9AC6E2487D878007AEE1D /* HeaderFooterCell.swift */; };
 		3EBC61D1245DDD8400F4B390 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61D0245DDD8400F4B390 /* AppDelegate.swift */; };
 		3EBC61D3245DDD8400F4B390 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61D2245DDD8400F4B390 /* SceneDelegate.swift */; };
 		3EBC61D8245DDD8400F4B390 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC61D6245DDD8400F4B390 /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		3E2E6799246309F0006E868D /* HistoryTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTaskTableViewCell.swift; sourceTree = "<group>"; };
 		3E2E679E24644650006E868D /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		3EA91A8D246AA32A00EB19ED /* SAConfettiView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SAConfettiView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EB9AC6E2487D878007AEE1D /* HeaderFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFooterCell.swift; sourceTree = "<group>"; };
 		3EBC61CD245DDD8400F4B390 /* FocusOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBC61D0245DDD8400F4B390 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EBC61D2245DDD8400F4B390 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				3EBC620524617D7600F4B390 /* HistorySummaryTableViewCell.swift */,
 				3E2E6797246309DD006E868D /* HistoryGoalTableViewCell.swift */,
 				3E2E6799246309F0006E868D /* HistoryTaskTableViewCell.swift */,
+				3EB9AC6E2487D878007AEE1D /* HeaderFooterCell.swift */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				3EBC620624617D7600F4B390 /* HistorySummaryTableViewCell.swift in Sources */,
 				3E2E67542461EB56006E868D /* CheckMarkButtonWhite.swift in Sources */,
 				3EBC61D3245DDD8400F4B390 /* SceneDelegate.swift in Sources */,
+				3EB9AC6F2487D878007AEE1D /* HeaderFooterCell.swift in Sources */,
 				3E2E67922462D90F006E868D /* GoalCompletionPopUp.swift in Sources */,
 				3EBC61FD245F3A0C00F4B390 /* TodayTaskTableViewCell.swift in Sources */,
 			);

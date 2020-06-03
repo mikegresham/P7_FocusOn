@@ -16,4 +16,13 @@ class CheckMarkButtonGreen: UIButton {
         self.setImage(UIImage.init(named: "uncheckedGreen"), for: .normal)
         self.setImage(UIImage.init(named: "checkedGreen"), for: .selected)
     }
+    func plusButton() {
+        let config = UIImage.SymbolConfiguration(scale: .large)
+        self.setImage(UIImage(systemName: "plus", withConfiguration: config), for: .normal)
+    }
+    func checkButton() {
+        self.setImage(UIImage.init(named: "uncheckedGreen"), for: .normal)
+        self.setImage(UIImage.init(named: "checkedGreen"), for: .selected)
+    }
+    
 }
