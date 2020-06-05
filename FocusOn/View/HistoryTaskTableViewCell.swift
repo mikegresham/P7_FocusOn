@@ -9,14 +9,10 @@
 import Foundation
 import UIKit
 
-protocol HistoryTaskTableViewCellDelegate {
-    func updateRowHeight()
-}
 
 class HistoryTaskTableViewCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var taskCompletionButton: CheckMarkButtonGreen!
     @IBOutlet weak var taskTextView: UITextView!
-    var delegate: HistoryTaskTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,15 +23,8 @@ class HistoryTaskTableViewCell: UITableViewCell, UITextViewDelegate {
     func setCellData(task: Task) {
         taskTextView.text = task.title
         manageTaskCompletionButton(task.completion)
-        self.textViewDidChange(taskTextView)
     }
     private func manageTaskCompletionButton(_ completion: Bool) {
         taskCompletionButton.isSelected = completion
-    }
-    func textViewDidChange(_ textView: UITextView) {
-        let size = CGSize(width: textView.frame.width, height: .infinity)
-        let estimatedSize = textView.sizeThatFits(size)
-        textView.frame.size.height = estimatedSize.height
-        delegate?.self.updateRowHeight()
     }
 }

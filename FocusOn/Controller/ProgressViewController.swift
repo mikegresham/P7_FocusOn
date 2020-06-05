@@ -15,7 +15,7 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
     let dataController = DataController()
     var weekDate = Date.init()
     var yearDate = Date.init()
-    var tasksCount = 3
+    var goalsCount = 3
     var firstEntry = Date.init()
     
     @IBOutlet weak var dateLabel: UILabel!
@@ -23,10 +23,9 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var barChartView: BarChartView!
     
     @IBAction func viewSegmentChanged(_ sender: Any) {
-        //self.configure()
-        //self.setData()
+        self.configure()
     }
-    /*
+    
     @IBAction func previousButton(_ sender: Any) {
         switch viewSegment.selectedSegmentIndex {
         case 0:
@@ -44,7 +43,6 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
         default:
             break
         }
-        setData()
         configure()
     }
     @IBAction func nextButton(_ sender: Any) {
@@ -65,8 +63,7 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
         default:
             break
         }
-        setData()
-        configure() 
+        configure()
     }
     
 
@@ -75,15 +72,15 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         weekDate = dataController.firstDayOfWeek(for: Date.init())
         yearDate = dataController.firstDayOfYear(for: Date.init())
-        firstEntry = dataController.fetchFirstDate()
-        print(dataController.dateCaption(for: firstEntry))
+        if dataController.fetchGoalHistory(from: nil, to: nil)?.count ?? 0 > 0 {
+            firstEntry = dataController.fetchFirstDate()
+        }
         configure()
-        setData()
         setSwipeGestures()
     }
     func setSwipeGestures() {
         //let gestureView = UIView(frame: barChartView.frame)
-       // gestureView.addConstraints(barChartView.constraints)
+        //gestureView.addConstraints(barChartView.constraints)
         //self.view.addSubview(gestureView)
         barChartView.gestureRecognizers?.forEach(barChartView.removeGestureRecognizer(_:))
         let leftSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeBarChart(_sender:
@@ -107,6 +104,10 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     func configure() {
+        if dataController.fetchGoalHistory(from: nil, to: nil)?.count ?? 0 > 0 {
+            setData()
+        }
+
         let legend = barChartView.legend
         legend.horizontalAlignment = .center
         legend.verticalAlignment = .top
@@ -136,12 +137,12 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
         switch viewSegment.selectedSegmentIndex {
         case 0:
             xAxis.labelCount = 7
-            leftAxis.labelCount = tasksCount + 1
-            leftAxis.axisMaximum = Double(tasksCount + 1) 
+            leftAxis.labelCount = goalsCount + 1
+            leftAxis.axisMaximum = Double(goalsCount + 1) 
         case 1:
             xAxis.labelCount = 12
             leftAxis.labelCount = 6
-            leftAxis.axisMaximum = 31
+            leftAxis.axisMaximum = Double(goalsCount)
         default:
             break
         }
@@ -156,28 +157,30 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
         
         switch viewSegment.selectedSegmentIndex {
         case 0:
-            tasksCount = 0
+            goalsCount = 0
             self.dateLabel.text = dataController.weekCaption(for: weekDate)
             var data: [(completed: Int, total: Int)] = []
             data = dataController.dataForWeek(week: weekDate)
             for i in 0 ..< data.count{
                 completedEntries.append(BarChartDataEntry(x: Double(i), y: Double(data[i].completed)))
                 totalEntries.append(BarChartDataEntry(x: Double(i), y: Double(data[i].total)))
-                tasksCount = tasksCount < data[i].total ? data[i].total : tasksCount
+                goalsCount = goalsCount < data[i].total ? data[i].total : goalsCount
             }
             xAxisLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-            completedLabel = "Tasks Completed"
-            totalLabel = "Total Tasks"
+            completedLabel = "Completed Goals"
+            totalLabel = "Total Goals"
         case 1:
+            goalsCount = 0
             self.dateLabel.text = dataController.yearCaption(for: yearDate)
             var data: [(completed: Int, total: Int)] = []
             data = dataController.dataForYear(year: yearDate)
             for i in 0 ..< data.count{
                 completedEntries.append(BarChartDataEntry(x: Double(i), y: Double(data[i].completed)))
                 totalEntries.append(BarChartDataEntry(x: Double(i), y: Double(data[i].total)))
+                goalsCount = goalsCount < data[i].total ? data[i].total : goalsCount
             }
             xAxisLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-            completedLabel = "Goals Completed"
+            completedLabel = "Completed Goals"
             totalLabel = "Total Goals"
         default:
             break
@@ -205,6 +208,11 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
         barChartView.invalidateIntrinsicContentSize()
         barChartView.animate(yAxisDuration: 0.5, easingOption: .easeOutBack)
     }
- */
+    func setBarChart(){
+        
+    }
+    func setPieChart(){
+        
+    }
 }
 

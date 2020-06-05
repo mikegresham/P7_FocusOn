@@ -9,32 +9,32 @@
 import Foundation
 import UIKit
 
-protocol HistoryGoalTableViewCellDelegate {
-    func updateRowHeight()
-}
-
 class HistoryGoalTableViewCell: UITableViewCell, UITextViewDelegate {
-    var delegate: HistoryGoalTableViewCellDelegate?
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var goalTitleTextView: UITextView!
     @IBOutlet weak var goalCompletionButton: CheckMarkButtonWhite!
+    var goalID = UUID()
     override func awakeFromNib() {
         super.awakeFromNib()
+        view.layer.cornerRadius = 10
+        createShadowLayer()
         goalTitleTextView.delegate = self
         goalTitleTextView.isScrollEnabled = false
     }
-    
+    func createShadowLayer(){
+        layer.masksToBounds = false
+        layer.shadowOpacity = 0.23
+        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowColor = UIColor.black.cgColor
+        self.backgroundColor = .clear
+    }
     func setCellData(goal: Goal) {
+        goalID = goal.id
         goalTitleTextView.text = goal.title
         manageTaskCompletionButton(goal.completion)
-        self.textViewDidChange(goalTitleTextView)
     }
     private func manageTaskCompletionButton(_ completion: Bool) {
         goalCompletionButton.isSelected = completion
-    }
-    func textViewDidChange(_ textView: UITextView) {
-        let size = CGSize(width: textView.frame.width, height: .infinity)
-        let estimatedSize = textView.sizeThatFits(size)
-        textView.frame.size.height = estimatedSize.height
-        delegate?.self.updateRowHeight()
     }
 }

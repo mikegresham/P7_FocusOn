@@ -1,5 +1,5 @@
 //
-//  HeaderFooterCell.swift
+//  SummaryCell.swift
 //  FocusOn
 //
 //  Created by Michael Gresham on 03/06/2020.
@@ -9,17 +9,15 @@
 import Foundation
 import UIKit
 
-class HeaderFooterCell: UITableViewCell {
-    
-    @IBOutlet weak var view: UIView!
+class SummaryCell: UITableViewCell {
+
+    @IBOutlet weak var summaryLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         createShadowLayer()
-        view.layer.cornerRadius = 10
     }
-    
-    func createShadowLayer(){
+    func createShadowLayer() {
         layer.masksToBounds = false
         layer.shadowOpacity = 0.23
         layer.shadowRadius = 4
@@ -27,5 +25,4 @@ class HeaderFooterCell: UITableViewCell {
         layer.shadowColor = UIColor.black.cgColor
         self.backgroundColor = .clear
     }
-    
 }

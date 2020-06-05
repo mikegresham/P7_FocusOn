@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E02659E2489837F00FCBC09 /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E02659D2489837F00FCBC09 /* GoalViewController.swift */; };
 		3E2E67542461EB56006E868D /* CheckMarkButtonWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E67532461EB56006E868D /* CheckMarkButtonWhite.swift */; };
-		3E2E675824621439006E868D /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E675724621439006E868D /* PopUp.swift */; };
-		3E2E67922462D90F006E868D /* GoalCompletionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E67912462D90F006E868D /* GoalCompletionPopUp.swift */; };
+		3E2E675824621439006E868D /* TaskCompletionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E675724621439006E868D /* TaskCompletionAnimation.swift */; };
+		3E2E67922462D90F006E868D /* GoalCompletionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E67912462D90F006E868D /* GoalCompletionAnimation.swift */; };
 		3E2E67942462F049006E868D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E67932462F049006E868D /* AlertController.swift */; };
 		3E2E6798246309DD006E868D /* HistoryGoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E6797246309DD006E868D /* HistoryGoalTableViewCell.swift */; };
 		3E2E679A246309F0006E868D /* HistoryTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E6799246309F0006E868D /* HistoryTaskTableViewCell.swift */; };
@@ -34,6 +35,8 @@
 		3EBC61FD245F3A0C00F4B390 /* TodayTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61FC245F3A0C00F4B390 /* TodayTaskTableViewCell.swift */; };
 		3EBC6201245F3A5E00F4B390 /* CheckMarkButtonGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC6200245F3A5E00F4B390 /* CheckMarkButtonGreen.swift */; };
 		3EBC620624617D7600F4B390 /* HistorySummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC620524617D7600F4B390 /* HistorySummaryTableViewCell.swift */; };
+		3EC601F424880CE3004D2798 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC601F324880CE3004D2798 /* SummaryCell.swift */; };
+		3EC601F824881DF4004D2798 /* TVCDatasouceDelegatesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC601F724881DF4004D2798 /* TVCDatasouceDelegatesExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,9 +72,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3E02659D2489837F00FCBC09 /* GoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
 		3E2E67532461EB56006E868D /* CheckMarkButtonWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButtonWhite.swift; sourceTree = "<group>"; };
-		3E2E675724621439006E868D /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
-		3E2E67912462D90F006E868D /* GoalCompletionPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCompletionPopUp.swift; sourceTree = "<group>"; };
+		3E2E675724621439006E868D /* TaskCompletionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCompletionAnimation.swift; sourceTree = "<group>"; };
+		3E2E67912462D90F006E868D /* GoalCompletionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCompletionAnimation.swift; sourceTree = "<group>"; };
 		3E2E67932462F049006E868D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		3E2E6797246309DD006E868D /* HistoryGoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryGoalTableViewCell.swift; sourceTree = "<group>"; };
 		3E2E6799246309F0006E868D /* HistoryTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 		3EBC61FC245F3A0C00F4B390 /* TodayTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTaskTableViewCell.swift; sourceTree = "<group>"; };
 		3EBC6200245F3A5E00F4B390 /* CheckMarkButtonGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButtonGreen.swift; sourceTree = "<group>"; };
 		3EBC620524617D7600F4B390 /* HistorySummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySummaryTableViewCell.swift; sourceTree = "<group>"; };
+		3EC601F324880CE3004D2798 /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
+		3EC601F724881DF4004D2798 /* TVCDatasouceDelegatesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCDatasouceDelegatesExtension.swift; sourceTree = "<group>"; };
 		57A307DC161671551DACB33F /* Pods-FocusOn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusOn.release.xcconfig"; path = "Target Support Files/Pods-FocusOn/Pods-FocusOn.release.xcconfig"; sourceTree = "<group>"; };
 		57BE4570351A128FFBCFA4C0 /* Pods_FocusOn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FocusOn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F54166263F7B059DFBDF8E2 /* Pods-FocusOn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusOn.debug.xcconfig"; path = "Target Support Files/Pods-FocusOn/Pods-FocusOn.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,7 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				3EBC61F8245F269400F4B390 /* HistoryViewController.swift */,
+				3E02659D2489837F00FCBC09 /* GoalViewController.swift */,
 				3EBC61F2245F10F500F4B390 /* TodayViewController.swift */,
+				3EC601F724881DF4004D2798 /* TVCDatasouceDelegatesExtension.swift */,
 				3EBC61F4245F113E00F4B390 /* ProgressViewController.swift */,
 				3EBC61F6245F114C00F4B390 /* DataController.swift */,
 				3E2E67932462F049006E868D /* AlertController.swift */,
@@ -190,8 +198,8 @@
 				3EBC61FF245F3A3100F4B390 /* Buttons */,
 				3EBC61FE245F3A1D00F4B390 /* TableViewCells */,
 				3EBC61D6245DDD8400F4B390 /* Main.storyboard */,
-				3E2E675724621439006E868D /* PopUp.swift */,
-				3E2E67912462D90F006E868D /* GoalCompletionPopUp.swift */,
+				3E2E675724621439006E868D /* TaskCompletionAnimation.swift */,
+				3E2E67912462D90F006E868D /* GoalCompletionAnimation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 				3E2E6797246309DD006E868D /* HistoryGoalTableViewCell.swift */,
 				3E2E6799246309F0006E868D /* HistoryTaskTableViewCell.swift */,
 				3EB9AC6E2487D878007AEE1D /* HeaderFooterCell.swift */,
+				3EC601F324880CE3004D2798 /* SummaryCell.swift */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -378,12 +387,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E02659E2489837F00FCBC09 /* GoalViewController.swift in Sources */,
 				3EBC61FB245F39ED00F4B390 /* TodayGoalTableViewCell.swift in Sources */,
 				3E2E679A246309F0006E868D /* HistoryTaskTableViewCell.swift in Sources */,
 				3E2E6798246309DD006E868D /* HistoryGoalTableViewCell.swift in Sources */,
 				3EBC6201245F3A5E00F4B390 /* CheckMarkButtonGreen.swift in Sources */,
 				3EBC61DB245DDD8400F4B390 /* FocusOn.xcdatamodeld in Sources */,
 				3EBC61D1245DDD8400F4B390 /* AppDelegate.swift in Sources */,
+				3EC601F824881DF4004D2798 /* TVCDatasouceDelegatesExtension.swift in Sources */,
 				3EBC61ED245F108F00F4B390 /* Goal.swift in Sources */,
 				3EBC61F3245F10F600F4B390 /* TodayViewController.swift in Sources */,
 				3EBC61EF245F10AC00F4B390 /* Task.swift in Sources */,
@@ -391,12 +402,13 @@
 				3E2E67942462F049006E868D /* AlertController.swift in Sources */,
 				3EBC61F9245F269500F4B390 /* HistoryViewController.swift in Sources */,
 				3EBC61F7245F114C00F4B390 /* DataController.swift in Sources */,
-				3E2E675824621439006E868D /* PopUp.swift in Sources */,
+				3E2E675824621439006E868D /* TaskCompletionAnimation.swift in Sources */,
 				3EBC620624617D7600F4B390 /* HistorySummaryTableViewCell.swift in Sources */,
 				3E2E67542461EB56006E868D /* CheckMarkButtonWhite.swift in Sources */,
+				3EC601F424880CE3004D2798 /* SummaryCell.swift in Sources */,
 				3EBC61D3245DDD8400F4B390 /* SceneDelegate.swift in Sources */,
 				3EB9AC6F2487D878007AEE1D /* HeaderFooterCell.swift in Sources */,
-				3E2E67922462D90F006E868D /* GoalCompletionPopUp.swift in Sources */,
+				3E2E67922462D90F006E868D /* GoalCompletionAnimation.swift in Sources */,
 				3EBC61FD245F3A0C00F4B390 /* TodayTaskTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

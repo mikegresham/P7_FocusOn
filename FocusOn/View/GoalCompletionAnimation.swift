@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 import SAConfettiView
 
-class GoalCompletionPopUp: UIView {
+class GoalCompletionAnimation: UIView {
 var messageLabel = UILabel()
 var emojiLabel = UILabel()
 var okButton = UIButton()

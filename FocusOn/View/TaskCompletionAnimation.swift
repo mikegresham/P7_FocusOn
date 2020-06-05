@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PopUp: UIView {
+class TaskCompletionAnimation: UIView {
 var label = UILabel()
 
     private func configure() {
@@ -23,7 +23,7 @@ var label = UILabel()
         self.addSubview(label)
         
         let shadowLayer = CAShapeLayer()
-        shadowLayer.fillColor = UIColor.init(red: 0/255, green: 166/255, blue: 118/255, alpha: 1).cgColor
+        shadowLayer.fillColor = UIColor.init(red: 28/255, green: 35/255, blue: 33/255, alpha: 1).cgColor
         shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 25).cgPath
         shadowLayer.shadowColor = UIColor.black.cgColor
         shadowLayer.shadowPath = shadowLayer.path

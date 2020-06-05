@@ -12,8 +12,8 @@ import CoreGraphics
 
 protocol TodayTaskCellDelegate {
     func updateRowHeight()
-    func taskUpdate(cell: TodayTaskTableViewCell)
-    func taskCompleted(completion:Bool, cell: TodayTaskTableViewCell)
+    func taskUpdate(task: Task)
+    func taskCompleted(task: Task)
 }
 
 class TodayTaskTableViewCell: UITableViewCell {
@@ -27,50 +27,63 @@ class TodayTaskTableViewCell: UITableViewCell {
     @IBOutlet weak var addTaskButton: CheckMarkButtonGreen!
     
     @IBAction func addTaskButtonPressed(_ sender: Any) {
+        //Present keyboard
         self.taskTextView.becomeFirstResponder()
     }
     @IBAction func taskCompletionButtonPressed(_ sender: UIButton){
+        //Task completed, present animation
         taskCompletionButton.isSelected.toggle()
         task?.completion.toggle()
-        delegate?.self.taskUpdate(cell: self)
-        delegate?.self.taskCompleted(completion: taskCompletionButton.isSelected, cell: self)
+        delegate?.self.taskUpdate(task: task!)
+        delegate?.self.taskCompleted(task: task!)
     }
     override func awakeFromNib() {
+        super.awakeFromNib()
+        //Initial Set Up
+        createShadowLayer()
+        taskTextView.delegate = self
+        taskTextView.isScrollEnabled = false
+        textViewDidChange(taskTextView)
+    }
+    
+    func createShadowLayer() {
         super.awakeFromNib()
         layer.masksToBounds = false
         layer.shadowOpacity = 0.23
         layer.shadowRadius = 4
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowColor = UIColor.black.cgColor
-        taskTextView.delegate = self
-        taskTextView.isScrollEnabled = false
-        textViewDidChange(taskTextView)
         self.backgroundColor = .clear
     }
     
     func setCellData(task: Task, goalId: UUID) {
+        //Set cell data for existing task
         self.goalId = goalId
         self.task = task
         taskTextView.text = task.title
         manageTaskCompletionButton(task.completion)
-        setTextProperties(text: task.title)
         addTaskButton.isHidden = true
     }
     func setNewCellData(goalId: UUID) {
+        //set cell data for placeholder add task cell
         self.goalId = goalId
         taskTextView.text = ""
         taskCompletionButton.isSelected = false
         taskCompletionButton.isHidden = true
         addTaskButton.isHidden = false
-        
     }
 
     func manageTaskCompletionButton(_ completion: Bool) {
         taskCompletionButton.isSelected = completion
     }
 }
+
+//MARK: Text View Interactions
+
 extension TodayTaskTableViewCell: UITextViewDelegate {
+    
     func textViewDidChange(_ textView: UITextView) {
+        //Fucntion to resize text view as user edits text
         let size = CGSize(width: textView.frame.width, height: .infinity)
         let estimatedSize = textView.sizeThatFits(size)
         textView.frame.size.height = estimatedSize.height
@@ -78,6 +91,7 @@ extension TodayTaskTableViewCell: UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        //If user presses enter, hide keyboard
         if (text == "\n"){
             textView.resignFirstResponder()
         }
@@ -85,37 +99,21 @@ extension TodayTaskTableViewCell: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        //It task is empty, create new task
         if self.task == nil {
             let id = dataController.createEmptyTask(forGoal: goalId)
             self.task = dataController.fetchTask(for: id) as? Task
-            print("hi")
         }
+        //Update task
         task?.title = taskTextView.text
         task?.completion = taskCompletionButton.isSelected
-        delegate?.self.taskUpdate(cell: self)
+        delegate?.self.taskUpdate(task: task!)
+        //If no longer a placeholder cell, present checkmark button
         if taskTextView.text != "" {
             addTaskButton.isHidden = true
             taskCompletionButton.isHidden = false
-        }
-        print("hi")
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Define task..." {
-            textView.text = ""
-        }
-        setTextProperties(text: textView.text)
-    }
-
-    func setTextProperties(text: String) {
-        if text == "Define task..." {
-            self.taskTextView.textColor = UIColor.gray
-            self.taskTextView.font = UIFont(name: "Avenir-Oblique", size: 17)
         } else {
-        self.taskTextView.textColor = UIColor.black
-        self.taskTextView.font = UIFont(name: "Avenir-Book", size: 17)
+            task = nil
         }
     }
-
-    
 }

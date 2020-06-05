@@ -14,23 +14,24 @@ class AlertContoller {
         
     }
     func tasksCompletedAlertContoller(_ sender: TodayViewController, section: Int) -> UIAlertController {
-        let alertController = UIAlertController.init(title: "Congratulations!", message: "Look's like you've completed all your tasks for today, did you want to mark your goal as completed?", preferredStyle: .alert)
+        let alertController = UIAlertController.init(title: "Congratulations!", message: "Look's like you've completed all your tasks for this goal, did you want to mark this goal as completed?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes Please", style: .default, handler: { action in
             sender.goals[section].completion = true
             sender.tableView.reloadData()
-            //sender.goalCompleted()
+            sender.goalCompleted(goalId: sender.goals[section].id)
         })
         let noAction = UIAlertAction(title: "Not Yet", style: .destructive)
         alertController.addAction(yesAction)
         alertController.addAction(noAction)
         return alertController
     }
-    func repeatGoalAlertContoller(_ sender: TodayViewController) -> UIAlertController {
-        let alertController = UIAlertController.init(title: "Welcome Back!", message: "Look's like you didn't finish yesterday's goal, did you want to continue with yesterday's goal, or start a new goal?", preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "Continue Goal", style: .default, handler: { action in
+    func repeatGoalAlertContoller(_ sender: TodayViewController, _ goalCount: Int) -> UIAlertController {
+        let plural =  goalCount > 1 ? "goals" : "goal"
+        let alertController = UIAlertController.init(title: "Welcome Back!", message: "Look's like you didn't finish yesterday's \(plural), did you want to continue with yesterday's \(plural), or start a new goal?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Continue \(plural)", style: .default, handler: { action in
             sender.repeatGoals()
         })
-        let noAction = UIAlertAction(title: "New Goal", style: .default, handler: { action in
+        let noAction = UIAlertAction(title: "New goal", style: .default, handler: { action in
             sender.newGoal()
         })
         alertController.addAction(yesAction)
@@ -49,26 +50,29 @@ class AlertContoller {
         alertController.addAction(okAction)
         return alertController
     }
-    /*
+    
     func settingAlertContoller(_ sender: HistoryViewController) -> UIAlertController {
-        let alertController = UIAlertController.init(title: "Settings", message: "Choose from below", preferredStyle: .actionSheet)
+        let alertController = UIAlertController.init(title: "Demo Settings", message: "Choose from options", preferredStyle: .actionSheet)
         let deleteAllAction = UIAlertAction(title: "Delete All Data", style: .destructive, handler: { action in
             sender.dataController.deleteAll()
+            sender.viewWillAppear(true)
         })
         let createAction = UIAlertAction(title: "Create Dummy Data", style: .default, handler: { action in
-            sender.dataController.createDummyData(days: 500)
+            sender.dataController.createDummyData(days: 100)
+            sender.viewWillAppear(true)
         })
-        let deleteTodayAction = UIAlertAction(title: "Delete Today's Entry", style: .default, handler: { action in
-            sender.dataController.deleteGoal(for: Date.init())
-        })
-        let deleteYesterdayAction = UIAlertAction(title: "Delete Yesterdays's Entry", style: .default, handler: { action in
-            sender.dataController.deleteGoal(for: Date.init().addingTimeInterval(-24 * 3600))
+        let deleteTodayAction = UIAlertAction(title: "Prepare Repeat Yesterday", style: .default, handler: { action in
+            let goals = sender.dataController.fetchGoalHistory(from: Date.init(), to: Date.init())! as [Goal]
+            for i in 0 ..< goals.count{
+                sender.dataController.deleteGoal(for: goals[i].id)
+            }
+            sender.dataController.createDummyData(days: 2)
         })
         alertController.addAction(deleteTodayAction)
-        alertController.addAction(deleteYesterdayAction)
+        //alertController.addAction(deleteYesterdayAction)
         alertController.addAction(deleteAllAction)
         alertController.addAction(createAction)
         return alertController
     }
- */
+ 
 }
