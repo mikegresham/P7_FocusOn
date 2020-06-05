@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class HeaderFooterCell: UITableViewCell {
+class HeaderFooterTableViewCell: UITableViewCell {
     
     @IBOutlet weak var view: UIView!
     

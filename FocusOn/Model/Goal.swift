@@ -16,10 +16,10 @@ class Goal: NSManagedObject {
     //Attributes
     @NSManaged var id: UUID
     @NSManaged var title: String
-    //@NSManaged var tasks: [Task]
     @NSManaged var date: Date
     @NSManaged var completion: Bool
     
+    //Relationships
     @NSManaged var tasks: NSMutableSet?
     
     func changeGoalState() {

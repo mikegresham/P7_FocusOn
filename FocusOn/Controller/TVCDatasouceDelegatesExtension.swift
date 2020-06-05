@@ -26,7 +26,7 @@ extension TodayViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Account for header, goal, summary, add task, and footer row (+5)
-        return (dataController.fetchTasks(for: goals[section].id)!.count) + 5
+        return (dataManager.fetchTasks(for: goals[section].id)!.count) + 5
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,8 +44,8 @@ extension TodayViewController {
             return cell
         case 2:
             //Summary Cell
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryCellID", for: indexPath) as! SummaryCell
-            let tasks = dataController.fetchTasks(for: goals[indexPath.section].id) as! [Task]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryCellID", for: indexPath) as! TaskSummaryTableViewCell
+            let tasks = dataManager.fetchTasks(for: goals[indexPath.section].id) as! [Task]
             let count = tasks.filter{ $0.completion == false }.count
             if tasks.count == 0 {
                 cell.summaryLabel.text = "Add some tasks below..."
@@ -68,7 +68,7 @@ extension TodayViewController {
             //Task Cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "TodayTaskTableViewCellID", for: indexPath) as! TodayTaskTableViewCell
             cell.delegate = self
-            let tasksInSection = dataController.fetchTasks(for: goals[indexPath.section].id)! as! [Task]
+            let tasksInSection = dataManager.fetchTasks(for: goals[indexPath.section].id)! as! [Task]
             let taskForRow = tasksInSection[indexPath.row-3]
             cell.setCellData(task: taskForRow, goalId: goals[indexPath.section].id)
             return cell
@@ -89,16 +89,17 @@ extension TodayViewController : TodayTaskCellDelegate, TodayGoalCellDelegate {
         let goalIndex = goals.firstIndex { $0.id == task.goal.id }!
         if task.title != "" {
             //Update Task
-            dataController.updateTask(task: task)
+            dataManager.updateTask(task: task)
             //If user has unchecked task, then umcomplete goal
             if task.completion == false {
                 goals[goalIndex].completion = false
             }
         } else {
             //Delete if task is empty
-            dataController.deleteTask(for: task.id)
+            dataManager.deleteTask(for: task.id)
         }
         saveAndReload()
+        manageLocalNotifications()
      }
 
      func goalUpdate(cell: TodayGoalTableViewCell) {
@@ -107,6 +108,8 @@ extension TodayViewController : TodayTaskCellDelegate, TodayGoalCellDelegate {
         goals[indexPath.section].title = cell.goalTextView.text
         goals[indexPath.section].completion = cell.goalCompletionButton.isSelected
         saveAndReload()
+        manageLocalNotifications()
+
      }
     
     func taskCompleted(task: Task) {
@@ -122,25 +125,27 @@ extension TodayViewController : TodayTaskCellDelegate, TodayGoalCellDelegate {
             taskAnimation.animateSuccessPopUp()
         }
         //Check if all tasks are completed, if so offer user to complete goal
-        let tasks = dataController.fetchTasks(for: goal!.id) as! [Task]
+        let tasks = dataManager.fetchTasks(for: goal!.id) as! [Task]
         let count = tasks.filter{ $0.completion == true }.count
         if count == tasks.count {
             let section = goals.firstIndex { $0.id == goal!.id }
             let alertController = AlertContoller.init().tasksCompletedAlertContoller(self, section: section!)
             present(alertController, animated: true)
         }
+        manageLocalNotifications()
     }
     
     func goalCompleted(goalId: UUID) {
         //Display goal animation, and mark all tasks for goal as completed
         let goalAnimation = GoalCompletionAnimation()
         self.navigationController?.view.addSubview(goalAnimation)
-        let tasks = dataController.fetchTasks(for: goalId) as! [Task]
+        let tasks = dataManager.fetchTasks(for: goalId) as! [Task]
         for i in 0 ..< tasks.count {
             tasks[i].completion = true
-            dataController.updateTask(task: tasks[i])
+            dataManager.updateTask(task: tasks[i])
         }
         saveAndReload()
         goalAnimation.animatePopUp(self)
+        manageLocalNotifications()
     }
 }

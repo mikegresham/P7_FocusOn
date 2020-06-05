@@ -54,19 +54,19 @@ class AlertContoller {
     func settingAlertContoller(_ sender: HistoryViewController) -> UIAlertController {
         let alertController = UIAlertController.init(title: "Demo Settings", message: "Choose from options", preferredStyle: .actionSheet)
         let deleteAllAction = UIAlertAction(title: "Delete All Data", style: .destructive, handler: { action in
-            sender.dataController.deleteAll()
+            sender.dataManager.deleteAll()
             sender.viewWillAppear(true)
         })
         let createAction = UIAlertAction(title: "Create Dummy Data", style: .default, handler: { action in
-            sender.dataController.createDummyData(days: 100)
+            sender.dataManager.createDummyData(days: 100)
             sender.viewWillAppear(true)
         })
         let deleteTodayAction = UIAlertAction(title: "Prepare Repeat Yesterday", style: .default, handler: { action in
-            let goals = sender.dataController.fetchGoalHistory(from: Date.init(), to: Date.init())! as [Goal]
+            let goals = sender.dataManager.fetchGoalHistory(from: Date.init(), to: Date.init())! as [Goal]
             for i in 0 ..< goals.count{
-                sender.dataController.deleteGoal(for: goals[i].id)
+                sender.dataManager.deleteGoal(for: goals[i].id)
             }
-            sender.dataController.createDummyData(days: 2)
+            sender.dataManager.createDummyData(days: 2)
         })
         alertController.addAction(deleteTodayAction)
         //alertController.addAction(deleteYesterdayAction)

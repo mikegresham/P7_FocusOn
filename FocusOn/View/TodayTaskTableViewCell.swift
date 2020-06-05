@@ -19,7 +19,7 @@ protocol TodayTaskCellDelegate {
 class TodayTaskTableViewCell: UITableViewCell {
     var delegate: TodayTaskCellDelegate?
     var goalId = UUID.init()
-    let dataController = DataController()
+    let dataController = DataManager()
     var task: Task?
     
     @IBOutlet weak var taskTextView: UITextView!

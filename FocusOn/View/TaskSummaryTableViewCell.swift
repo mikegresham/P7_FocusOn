@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SummaryCell: UITableViewCell {
+class TaskSummaryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var summaryLabel: UILabel!
     

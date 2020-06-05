@@ -12,7 +12,9 @@ import Charts
 import CoreData
 
 class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
-    let dataController = DataController()
+    let dataManager = DataManager()
+    let timeManager = TimeManager()
+    let statsManager = StatsManager()
     var weekDate = Date.init()
     var yearDate = Date.init()
     var goalsCount = 3
@@ -29,13 +31,13 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func previousButton(_ sender: Any) {
         switch viewSegment.selectedSegmentIndex {
         case 0:
-            if (weekDate - TimeInterval(7 * 24 * 3600)) < dataController.firstDayOfWeek(for: firstEntry) {
+            if (weekDate - TimeInterval(7 * 24 * 3600)) < timeManager.firstDayOfWeek(for: firstEntry) {
                 present(AlertContoller.init().pastAlertContoller(self), animated: true)
             } else {
             weekDate -= TimeInterval(7 * 24 * 3600)
             }
         case 1:
-            if (yearDate - TimeInterval(365 * 24 * 3600)) < dataController.firstDayOfYear(for: firstEntry) {
+            if (yearDate - TimeInterval(365 * 24 * 3600)) < timeManager.firstDayOfYear(for: firstEntry) {
                 present(AlertContoller.init().pastAlertContoller(self), animated: true)
             } else {
             yearDate -= TimeInterval(365 * 24 * 3600)
@@ -48,14 +50,14 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func nextButton(_ sender: Any) {
         switch viewSegment.selectedSegmentIndex {
         case 0:
-            if (weekDate + TimeInterval(7 * 24 * 3600)) > dataController.today {
+            if (weekDate + TimeInterval(7 * 24 * 3600)) > timeManager.today {
                 present(AlertContoller.init().futureAlertContoller(self), animated: true)
             } else {
             weekDate += TimeInterval(7 * 24 * 3600)
             }
             
         case 1:
-            if (yearDate + TimeInterval(365 * 24 * 3600)) > dataController.today {
+            if (yearDate + TimeInterval(365 * 24 * 3600)) > timeManager.today {
                 present(AlertContoller.init().futureAlertContoller(self), animated: true)
             } else {
             yearDate += TimeInterval(365 * 24 * 3600)
@@ -70,18 +72,20 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        weekDate = dataController.firstDayOfWeek(for: Date.init())
-        yearDate = dataController.firstDayOfYear(for: Date.init())
-        if dataController.fetchGoalHistory(from: nil, to: nil)?.count ?? 0 > 0 {
-            firstEntry = dataController.fetchFirstDate()
+        weekDate = timeManager.firstDayOfWeek(for: Date.init())
+        yearDate = timeManager.firstDayOfYear(for: Date.init())
+        if dataManager.fetchGoalHistory(from: nil, to: nil)?.count ?? 0 > 0 {
+            firstEntry = statsManager.fetchFirstDate()
         }
         configure()
         setSwipeGestures()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configure()
+    }
     func setSwipeGestures() {
-        //let gestureView = UIView(frame: barChartView.frame)
-        //gestureView.addConstraints(barChartView.constraints)
-        //self.view.addSubview(gestureView)
         barChartView.gestureRecognizers?.forEach(barChartView.removeGestureRecognizer(_:))
         let leftSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeBarChart(_sender:
             )))
@@ -104,7 +108,7 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     func configure() {
-        if dataController.fetchGoalHistory(from: nil, to: nil)?.count ?? 0 > 0 {
+        if dataManager.fetchGoalHistory(from: nil, to: nil)?.count ?? 0 > 0 {
             setData()
         }
 
@@ -158,9 +162,9 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
         switch viewSegment.selectedSegmentIndex {
         case 0:
             goalsCount = 0
-            self.dateLabel.text = dataController.weekCaption(for: weekDate)
+            self.dateLabel.text = timeManager.weekCaption(for: weekDate)
             var data: [(completed: Int, total: Int)] = []
-            data = dataController.dataForWeek(week: weekDate)
+            data = statsManager.dataForWeek(week: weekDate)
             for i in 0 ..< data.count{
                 completedEntries.append(BarChartDataEntry(x: Double(i), y: Double(data[i].completed)))
                 totalEntries.append(BarChartDataEntry(x: Double(i), y: Double(data[i].total)))
@@ -171,9 +175,9 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
             totalLabel = "Total Goals"
         case 1:
             goalsCount = 0
-            self.dateLabel.text = dataController.yearCaption(for: yearDate)
+            self.dateLabel.text = timeManager.yearCaption(for: yearDate)
             var data: [(completed: Int, total: Int)] = []
-            data = dataController.dataForYear(year: yearDate)
+            data = statsManager.dataForYear(year: yearDate)
             for i in 0 ..< data.count{
                 completedEntries.append(BarChartDataEntry(x: Double(i), y: Double(data[i].completed)))
                 totalEntries.append(BarChartDataEntry(x: Double(i), y: Double(data[i].total)))

@@ -11,7 +11,8 @@ import UIKit
 import CoreData
 
 class HistoryViewController: UITableViewController {
-    let dataController = DataController()
+    let dataManager = DataManager()
+    let timeManager = TimeManager()
     var sections = [Any]()
     var months = 1
     var monthIndex = [Int]()
@@ -48,7 +49,7 @@ class HistoryViewController: UITableViewController {
         } else {
             // All goals for date
             let date = sections[section] as! Date
-            return dataController.fetchGoalHistory(from: date, to: date)!.count
+            return dataManager.fetchGoalHistory(from: date, to: date)!.count
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,7 +67,7 @@ class HistoryViewController: UITableViewController {
                 // Goal for row
                 let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryGoalTableViewCellID", for: indexPath) as! HistoryGoalTableViewCell
                 let date = sections[indexPath.section] as! Date
-                let goals = dataController.fetchGoalHistory(from: date, to: date)! as [Goal]
+                let goals = dataManager.fetchGoalHistory(from: date, to: date)! as [Goal]
                 cell.setCellData(goal: goals[indexPath.row])
                 return cell
             }
@@ -74,7 +75,7 @@ class HistoryViewController: UITableViewController {
             // Goal for row
             let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryGoalTableViewCellID", for: indexPath) as! HistoryGoalTableViewCell
             let date = sections[indexPath.section] as! Date
-            let goals = dataController.fetchGoalHistory(from: date, to: date)! as [Goal]
+            let goals = dataManager.fetchGoalHistory(from: date, to: date)! as [Goal]
             cell.setCellData(goal: goals[indexPath.row])
             return cell
         }
@@ -91,22 +92,22 @@ class HistoryViewController: UITableViewController {
         var previousMonth = Int()
         var date: Date?
         //Fetch all goals
-        let goals = dataController.fetchGoalHistory(from: nil, to: nil)! as [Goal]
+        let goals = dataManager.fetchGoalHistory(from: nil, to: nil)! as [Goal]
         
         for i in stride(from: goals.count - 1, to: -1, by: -1) {
             //Algorithm to calculate goals completed in each month, and store month headings and dates with goals logged for table sections.
             if i == goals.count - 1 {
                 //First Goal
                 monthIndex.append(0)
-                sections.append(dataController.monthCaption(for: goals[i].date))
+                sections.append(timeManager.monthCaption(for: goals[i].date))
             } else if i < goals.count {
                 //If Goal month is not the same as previous goal
-                if dataController.monthValue(for: goals[i].date) != previousMonth {
+                if timeManager.monthValue(for: goals[i].date) != previousMonth {
                     //Store completed goals vs total goals for previous month
                     stats.append((index: monthIndex.last!, completed: goalsCompleted, total: totalGoals))
                     //Add new month index
                     monthIndex.append(sections.count)
-                    sections.append(dataController.monthCaption(for: goals[i].date))
+                    sections.append(timeManager.monthCaption(for: goals[i].date))
                     //Reset Counters
                     totalGoals = 0
                     goalsCompleted = 0
@@ -115,12 +116,12 @@ class HistoryViewController: UITableViewController {
             if date == nil {
                 //First Goal
                 sections.append(goals[i].date)
-            } else if dataController.startOfDay(for: date!) != dataController.startOfDay(for: goals[i].date){
+            } else if timeManager.startOfDay(for: date!) != timeManager.startOfDay(for: goals[i].date){
                 //Only store each date once
                 sections.append(goals[i].date)
             }
             date = goals[i].date
-            previousMonth = dataController.monthValue(for: (goals[i].date))
+            previousMonth = timeManager.monthValue(for: (goals[i].date))
             totalGoals += 1
             goalsCompleted += goals[i].completion == true ? 1 : 0
             if i == 0 {
@@ -140,7 +141,7 @@ class HistoryViewController: UITableViewController {
         label.font = UIFont(name: "Avenir-Medium", size: 17)
         label.textColor = UIColor.black
         label.font = monthIndex.contains(section) ? UIFont(name: "Avenir-Black", size: 18) : UIFont(name: "Avenir-Heavy", size: 17)
-        label.text = monthIndex.contains(section) ? (sections[section] as! String) : dataController.dateCaption(for: sections[section] as! Date)
+        label.text = monthIndex.contains(section) ? (sections[section] as! String) : timeManager.dateCaption(for: sections[section] as! Date)
         label.textAlignment = .center
         returnedView.addSubview(label)
         return returnedView
@@ -158,7 +159,7 @@ class HistoryViewController: UITableViewController {
         // Send selected goal to segue
         if segue.identifier == "viewGoalSegueID" {
             let goalViewController = segue.destination as! GoalViewController
-            goalViewController.goal = dataController.fetchGoal(for: (sender as! HistoryGoalTableViewCell).goalID) as! Goal
+            goalViewController.goal = dataManager.fetchGoal(for: (sender as! HistoryGoalTableViewCell).goalID) as! Goal
         }
     }
     

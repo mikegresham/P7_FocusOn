@@ -178,12 +178,12 @@
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.65224272009999995" blue="0.46272903679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="wic-TT-DqG">
-                            <rect key="frame" x="0.0" y="289.5" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="289" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderCellID" rowHeight="20" id="VPX-Cf-ybg" customClass="HeaderFooterCell" customModule="FocusOn" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderCellID" rowHeight="20" id="VPX-Cf-ybg" customClass="HeaderFooterTableViewCell" customModule="FocusOn" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="20"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VPX-Cf-ybg" id="ViS-Xk-ucn">
@@ -208,18 +208,18 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TodayGoalTableViewCellID" id="AkB-ME-y6f" customClass="TodayGoalTableViewCell" customModule="FocusOn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="48" width="414" height="86.5"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AkB-ME-y6f" id="tE7-Ys-jnb">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="86.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gv0-dP-5y2">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="86.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="374" height="86"/>
                                             <color key="backgroundColor" red="0.29615697260000001" green="0.65619832280000001" blue="0.46664786339999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </view>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Set your goal..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mhr-Qr-IT6">
-                                            <rect key="frame" x="72" y="28" width="314" height="47.5"/>
+                                            <rect key="frame" x="72" y="28" width="314" height="47"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -269,8 +269,8 @@
                                     <outlet property="goalTextView" destination="mhr-Qr-IT6" id="keF-lm-4E3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SummaryCellID" rowHeight="30" id="Buf-d0-MG7" customClass="SummaryCell" customModule="FocusOn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="134.5" width="414" height="30"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SummaryCellID" rowHeight="30" id="Buf-d0-MG7" customClass="TaskSummaryTableViewCell" customModule="FocusOn" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="134" width="414" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Buf-d0-MG7" id="rU2-lu-gQ6">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
@@ -308,7 +308,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TodayTaskTableViewCellID" rowHeight="77" id="DPt-UT-ocA" customClass="TodayTaskTableViewCell" customModule="FocusOn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="164.5" width="414" height="77"/>
+                                <rect key="frame" x="0.0" y="164" width="414" height="77"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DPt-UT-ocA" id="6rR-lZ-3T4">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
@@ -378,8 +378,8 @@
                                     <outlet property="taskTextView" destination="M7Q-Dt-7kz" id="uya-hl-opw"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FooterCellID" rowHeight="20" id="Y4I-Z6-QeV" customClass="HeaderFooterCell" customModule="FocusOn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="241.5" width="414" height="20"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FooterCellID" rowHeight="20" id="Y4I-Z6-QeV" customClass="HeaderFooterTableViewCell" customModule="FocusOn" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="241" width="414" height="20"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y4I-Z6-QeV" id="q6u-zq-5fX">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
@@ -420,7 +420,7 @@
             </objects>
             <point key="canvasLocation" x="1882.608695652174" y="137.94642857142856"/>
         </scene>
-        <!--Progress View Controller-->
+        <!--FocusOn Progess-->
         <scene sceneID="xKp-In-7ix">
             <objects>
                 <viewController id="uCd-wS-bd0" customClass="ProgressViewController" customModule="FocusOn" customModuleProvider="target" sceneMemberID="viewController">
@@ -429,7 +429,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RY-AM-aNB" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="140" width="374" height="653"/>
+                                <rect key="frame" x="20" y="179" width="374" height="614"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <gestureRecognizers/>
                             </view>
@@ -487,34 +487,32 @@
                                     <constraint firstItem="Prv-Ql-7dZ" firstAttribute="centerX" secondItem="tiF-V2-Hcz" secondAttribute="centerX" id="uh4-1L-Zw1"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="IOi-1E-tgA">
+                                <rect key="frame" x="20" y="140" width="374" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Week"/>
+                                    <segment title="Year"/>
+                                </segments>
+                                <connections>
+                                    <action selector="viewSegmentChanged:" destination="uCd-wS-bd0" eventType="valueChanged" id="iZi-68-nYv"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tiF-V2-Hcz" secondAttribute="trailing" id="Bcz-OZ-bkA"/>
+                            <constraint firstItem="IOi-1E-tgA" firstAttribute="top" secondItem="tiF-V2-Hcz" secondAttribute="bottom" constant="8" id="Kcd-8g-yuS"/>
                             <constraint firstItem="0RY-AM-aNB" firstAttribute="leading" secondItem="68R-X9-si8" secondAttribute="leading" constant="20" id="Yqu-1V-VVc"/>
+                            <constraint firstItem="0RY-AM-aNB" firstAttribute="top" secondItem="IOi-1E-tgA" secondAttribute="bottom" constant="8" id="dQT-7F-xBZ"/>
                             <constraint firstItem="0RY-AM-aNB" firstAttribute="bottom" secondItem="68R-X9-si8" secondAttribute="bottom" constant="-20" id="imc-yA-Ex6"/>
                             <constraint firstItem="tiF-V2-Hcz" firstAttribute="leading" secondItem="2EZ-JQ-f6g" secondAttribute="leading" id="p6c-OU-bMJ"/>
                             <constraint firstItem="0RY-AM-aNB" firstAttribute="trailing" secondItem="68R-X9-si8" secondAttribute="trailing" constant="-20" id="pdj-H8-1Vb"/>
-                            <constraint firstItem="0RY-AM-aNB" firstAttribute="top" secondItem="tiF-V2-Hcz" secondAttribute="bottom" constant="8" id="tg2-GC-1GR"/>
                             <constraint firstItem="tiF-V2-Hcz" firstAttribute="top" secondItem="68R-X9-si8" secondAttribute="top" id="wbg-nY-rcp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="68R-X9-si8"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vxs-wb-u1f">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="IOi-1E-tgA">
-                            <rect key="frame" x="59" y="6" width="296" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Week"/>
-                                <segment title="Year"/>
-                                <segment title="Achievments"/>
-                            </segments>
-                            <connections>
-                                <action selector="viewSegmentChanged:" destination="uCd-wS-bd0" eventType="valueChanged" id="iZi-68-nYv"/>
-                            </connections>
-                        </segmentedControl>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="FocusOn Progess" id="vxs-wb-u1f"/>
                     <connections>
                         <outlet property="barChartView" destination="0RY-AM-aNB" id="gFy-do-eGZ"/>
                         <outlet property="dateLabel" destination="Prv-Ql-7dZ" id="PwT-rT-x3h"/>
@@ -620,12 +618,12 @@
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.65224272009999995" blue="0.46272903679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="gCS-2U-b5O">
-                            <rect key="frame" x="0.0" y="289" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="289.5" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderCellID" rowHeight="20" id="O3z-61-1NY" customClass="HeaderFooterCell" customModule="FocusOn" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderCellID" rowHeight="20" id="O3z-61-1NY" customClass="HeaderFooterTableViewCell" customModule="FocusOn" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="20"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O3z-61-1NY" id="ebE-vu-hMa">
@@ -650,18 +648,18 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TodayGoalTableViewCellID" id="G9R-fC-tjI" customClass="TodayGoalTableViewCell" customModule="FocusOn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="48" width="414" height="86"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="86.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G9R-fC-tjI" id="bpA-7T-HL3">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="86.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3d-RA-SzW">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="86"/>
+                                            <rect key="frame" x="20" y="0.0" width="374" height="86.5"/>
                                             <color key="backgroundColor" red="0.00041297735879999999" green="0.66630417109999995" blue="0.44996219869999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Set your goal..." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrN-YL-JqH">
-                                            <rect key="frame" x="72" y="28" width="314" height="47"/>
+                                            <rect key="frame" x="72" y="28" width="314" height="47.5"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -711,8 +709,8 @@
                                     <outlet property="goalTextView" destination="zrN-YL-JqH" id="266-2u-Svn"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SummaryCellID" rowHeight="30" id="faW-y4-cgi" customClass="SummaryCell" customModule="FocusOn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="134" width="414" height="30"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SummaryCellID" rowHeight="30" id="faW-y4-cgi" customClass="TaskSummaryTableViewCell" customModule="FocusOn" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="134.5" width="414" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="faW-y4-cgi" id="k6X-YM-KiP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
@@ -750,7 +748,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TodayTaskTableViewCellID" rowHeight="77" id="cfn-Bc-Lo3" customClass="TodayTaskTableViewCell" customModule="FocusOn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="164" width="414" height="77"/>
+                                <rect key="frame" x="0.0" y="164.5" width="414" height="77"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cfn-Bc-Lo3" id="GL6-hK-QYX">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
@@ -817,8 +815,8 @@
                                     <outlet property="taskTextView" destination="Qrc-5C-GyP" id="7Yx-AT-amJ"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FooterCellID" rowHeight="20" id="S3h-0B-43g" customClass="HeaderFooterCell" customModule="FocusOn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="241" width="414" height="20"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FooterCellID" rowHeight="20" id="S3h-0B-43g" customClass="HeaderFooterTableViewCell" customModule="FocusOn" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="241.5" width="414" height="20"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S3h-0B-43g" id="4Ye-1R-unP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>

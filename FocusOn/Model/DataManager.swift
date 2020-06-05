@@ -14,7 +14,8 @@ protocol DataManagerDelegate {
     var goals: [Goal] { get set }
 }
 
-class DataController {
+class DataManager {
+    var timeManager = TimeManager()
     var delegate: DataManagerDelegate?
     var context: NSManagedObjectContext
     var entity: NSEntityDescription?
@@ -33,7 +34,7 @@ class DataController {
         emptyGoal.id = UUID()
         emptyGoal.title = "Set your goal..."
         emptyGoal.completion = false
-        emptyGoal.date = startOfDay(for: Date.init())
+        emptyGoal.date = timeManager.startOfDay(for: Date.init())
         
         saveContext()
 
@@ -108,12 +109,12 @@ class DataController {
         var predicate: NSPredicate?
         
         if let from = from, let to = to {
-            predicate = NSPredicate(format: "date >= %@ AND date <= %@", startOfDay(for: from) as NSDate, startOfDay(for: to) as NSDate)
+            predicate = NSPredicate(format: "date >= %@ AND date <= %@", timeManager.startOfDay(for: from) as NSDate, timeManager.startOfDay(for: to) as NSDate)
         } else if let from = from {
-            predicate = NSPredicate(format: "date >= %@", startOfDay(for: from) as NSDate)
+            predicate = NSPredicate(format: "date >= %@", timeManager.startOfDay(for: from) as NSDate)
         }
         else if let to = to {
-            predicate = NSPredicate(format: "date <= %@", startOfDay(for: to) as NSDate)
+            predicate = NSPredicate(format: "date <= %@", timeManager.startOfDay(for: to) as NSDate)
         }
         request.predicate = predicate
         let sectionSortDescriptor = NSSortDescriptor(key: "date", ascending: true)
@@ -131,8 +132,6 @@ class DataController {
     }
     
     //MARK: Update
-    
-    
     
     func updateGoal(goal: Goal) {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: Goal.entityName)
@@ -182,7 +181,6 @@ class DataController {
             print("Fetch on task id: \(task.id), goal id: \(task.goal.id) failed. \(error)")
         }
     }
-       
     
     //MARK: Delete
     
@@ -242,17 +240,14 @@ class DataController {
         }
     }
 
-    func fetchFirstDate() -> Date {
-        let goals = self.fetchGoalHistory(from: nil, to: nil)! as [Goal]
-        return goals.first!.date
-    }
-
+    //MARK: Demo Data
+    
     func createDummyData(days: Int) {
         deleteAll()
         var titles = ["Create a New App", "Finish next Project on OC", "Brainstorm ideas for next project", "Refactor and test my code"]
         var taskTitles = ["Work Hard", " Send important emails", "Schedule meeting on Zoom", "Submit project on OC", "Commit project to GitHub", "Continue to develop your Swift skills", "Put comments in your code", "Test code thoroughly"]
         for i in 1 ..< days {
-            let rand = Int.random(in: 0 ... 3)
+            let rand = Int.random(in: 0 ... 5)
             for _ in 0 ..< rand {
                 titles = titles.shuffled()
                 let goalID = createEmptyGoal()
@@ -260,7 +255,7 @@ class DataController {
                 var date = Date.init()
                 date.addTimeInterval(-Double(i * 3600 * 24))
                 goal.title = titles.first!
-                goal.date = startOfDay(for: date)
+                goal.date = timeManager.startOfDay(for: date)
                 var tasks = [Task]()
                 for _ in 0 ..< rand {
                     let taskID = createEmptyTask(forGoal: goal.id)
@@ -279,114 +274,4 @@ class DataController {
         }
         saveContext()
     }
-
-    func countCompleted(goals: [Goal]) -> Int {
-        return goals.filter { (goal) -> Bool in
-            return goal.completion == true
-        }.count
-    }
-    func dataForYear(year: Date) -> [(completed: Int, total: Int)] {
-        var data = [(completed: Int, total: Int)]()
-        let year = Calendar.current.component(.year, from: year)
-        for i in 1 ... 12 {
-            let firstDayOfMonth = Calendar.current.date(from: DateComponents(year: year, month: i, day: 1))!
-            let lastDayComponents = DateComponents(month: 1, day: -1)
-            let lastDayOfMonth = Calendar.current.date(byAdding: lastDayComponents, to: firstDayOfMonth)!
-            data.append(dataForDates(first: firstDayOfMonth, last: lastDayOfMonth))
-        }
-        return data
-    }
-    func dataForWeek(week: Date) -> [(completed: Int, total: Int)] {
-        let firstDayOfweek = self.firstDayOfWeek(for: week)
-        let lastDayOfWeek = firstDayOfweek.addingTimeInterval(TimeInterval(6 * 24 * 3600))
-        return taskDataForDates(first: firstDayOfweek, last: lastDayOfWeek)
-    }
-    func dataForDates(first: Date, last: Date) -> (Int, Int) {
-        let goals = self.fetchGoalHistory(from: first, to: last)! as [Goal]
-        let goalsCompleted =  goals.filter { (goal) -> Bool in
-            return goal.completion == true
-        }.count
-        return (goalsCompleted, goals.count)
-    }
-    func taskDataForDates(first: Date, last: Date) -> [(completed: Int, total: Int)] {
-        var data = [(completed: Int, total: Int)]()
-        let goals = self.fetchGoalHistory(from: first, to: last)! as [Goal]
-
-        var completed = 0
-        var total = 0
-        var date = first
-        for _ in 1 ... 7 {
-            let goalsForDate = goals.filter { $0.date == startOfDay(for: date) }
-            if goalsForDate.count > 0 {
-                    completed = goalsForDate.filter { $0.completion == true }.count
-                    total = goalsForDate.count
-                    data.append((completed: completed, total: total))
-
-            } else {
-                data.append((completed: 0, total: 0))
-            }
-            date.addTimeInterval(Double(3600 * 24))
-        }
-        return data
-    }
- 
-}
-// MARK: Date Variables and Functions
-extension DataController {
-    var today: Date {
-        return startOfDay(for: Date())
-    }
-    var yesterday: Date {
-        return today - 86400
-    }
-    
-    func firstDayOfYear(for date: Date) -> Date {
-        let year = Calendar.current.component(.year, from: date)
-        let firstDayOfYear = Calendar.current.date(from: DateComponents(year: year, month: 1, day: 1))!
-        return startOfDay(for: firstDayOfYear)
-    }
-
-    func firstDayOfWeek(for date: Date) -> Date{
-        let calendar = Calendar.current
-        let weekday = calendar.component(.weekday, from: date)
-        let difference = TimeInterval((2 - weekday) * 24 * 3600)
-        return startOfDay(for: date.addingTimeInterval(difference))
-    }
-
-    func startOfDay(for date: Date) -> Date {
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone.current
-        return calendar.startOfDay(for: date)
-    }
-    func yearCaption(for date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy"
-        return dateFormatter.string(from: date)
-    }
-    func dateCaption(for date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .full
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.timeStyle = .none
-        
-        return dateFormatter.string(from: date)
-    }
-    func weekCaption(for date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.timeStyle = .none
-        
-        return "Week beginning \(dateFormatter.string(from: date))"
-    }
-    func monthCaption(for date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "LLLL"
-        return dateFormatter.string(from: date)
-    }
-    func monthValue(for date: Date) -> Int {
-        let calendar = Calendar.current
-        return calendar.component(.month, from: date)
-    }
- 
 }
