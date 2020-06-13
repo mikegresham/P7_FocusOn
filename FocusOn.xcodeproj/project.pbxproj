@@ -20,6 +20,7 @@
 		3E414127248A753800B2E259 /* StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E414126248A753800B2E259 /* StatsManager.swift */; };
 		3EA91A88246AA06E00EB19ED /* Pods_FocusOn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BE4570351A128FFBCFA4C0 /* Pods_FocusOn.framework */; };
 		3EA91A89246AA06E00EB19ED /* Pods_FocusOn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57BE4570351A128FFBCFA4C0 /* Pods_FocusOn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3EA9A4DF2493BDEB00789F53 /* TodayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA9A4DE2493BDEB00789F53 /* TodayTests.swift */; };
 		3EB9AC6F2487D878007AEE1D /* HeaderFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB9AC6E2487D878007AEE1D /* HeaderFooterTableViewCell.swift */; };
 		3EBC61D1245DDD8400F4B390 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61D0245DDD8400F4B390 /* AppDelegate.swift */; };
 		3EBC61D3245DDD8400F4B390 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC61D2245DDD8400F4B390 /* SceneDelegate.swift */; };
@@ -94,6 +95,7 @@
 		3E414124248A720500B2E259 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		3E414126248A753800B2E259 /* StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsManager.swift; sourceTree = "<group>"; };
 		3EA91A8D246AA32A00EB19ED /* SAConfettiView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SAConfettiView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EA9A4DE2493BDEB00789F53 /* TodayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTests.swift; sourceTree = "<group>"; };
 		3EB9AC6E2487D878007AEE1D /* HeaderFooterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFooterTableViewCell.swift; sourceTree = "<group>"; };
 		3EBC61CD245DDD8400F4B390 /* FocusOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBC61D0245DDD8400F4B390 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				3E414119248A6EA500B2E259 /* Info.plist */,
 				3E414122248A6F5700B2E259 /* DataManagerTests.swift */,
+				3EA9A4DE2493BDEB00789F53 /* TodayTests.swift */,
 			);
 			path = FocusOnTests;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E414123248A6F5700B2E259 /* DataManagerTests.swift in Sources */,
+				3EA9A4DF2493BDEB00789F53 /* TodayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

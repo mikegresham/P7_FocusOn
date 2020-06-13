@@ -100,6 +100,7 @@ class TodayViewController: UITableViewController {
     func newGoal() {
         let id = dataManager.createEmptyGoal()
         goals.append(dataManager.fetchGoal(for: id) as! Goal)
+        saveAndReload()
     }
 
 

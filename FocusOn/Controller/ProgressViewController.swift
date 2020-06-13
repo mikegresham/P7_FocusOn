@@ -108,9 +108,8 @@ class ProgressViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     func configure() {
-        if dataManager.fetchGoalHistory(from: nil, to: nil)?.count ?? 0 > 0 {
-            setData()
-        }
+        setData()
+        
 
         let legend = barChartView.legend
         legend.horizontalAlignment = .center

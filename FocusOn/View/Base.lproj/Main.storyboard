@@ -487,9 +487,9 @@
                                     <constraint firstItem="Prv-Ql-7dZ" firstAttribute="centerX" secondItem="tiF-V2-Hcz" secondAttribute="centerX" id="uh4-1L-Zw1"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="IOi-1E-tgA">
-                                <rect key="frame" x="20" y="140" width="374" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="IOi-1E-tgA">
+                                <rect key="frame" x="81" y="140" width="252" height="32"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Week"/>
                                     <segment title="Year"/>
