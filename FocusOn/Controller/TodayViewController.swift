@@ -146,7 +146,7 @@ class TodayViewController: UITableViewController {
             title = "Progress in action!"
             let plural = (totalGoals - completedGoals) == 1 ? "goal" : "goals"
             body = "\(completedGoals) down \(totalGoals - completedGoals) \(plural) to go!"
-        }
+        } 
         
         // schedule (or remove) reminders
         scheduleLocalNotification(title: title, body: body)
@@ -187,7 +187,6 @@ class TodayViewController: UITableViewController {
 
         // remove previously scheduled notifications
         notificationCenter.removeDeliveredNotifications(withIdentifiers: [identifier])
-       
 
         // create content
         let content = UNMutableNotificationContent()

@@ -88,6 +88,7 @@ extension TodayTaskTableViewCell: UITextViewDelegate {
         let estimatedSize = textView.sizeThatFits(size)
         textView.frame.size.height = estimatedSize.height
         delegate?.self.updateRowHeight()
+        
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
