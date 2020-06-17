@@ -146,7 +146,10 @@ class TodayViewController: UITableViewController {
             title = "Progress in action!"
             let plural = (totalGoals - completedGoals) == 1 ? "goal" : "goals"
             body = "\(completedGoals) down \(totalGoals - completedGoals) \(plural) to go!"
-        } 
+        } else if completedGoals == totalGoals { // all goals completed
+            title = "Great work today!"
+            body = "Why not add some more goals?"
+        }
         
         // schedule (or remove) reminders
         scheduleLocalNotification(title: title, body: body)
